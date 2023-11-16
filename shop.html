@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин - WeatherHub</title>
+    <link rel="icon" href="images/menu icons/logo-white.png" sizes="any">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/shop.css"> 
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/cart.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/menu icons/logo-white.png" alt="Логотип">
+            <h1>WeatherHub</h1>
+        </div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="weather.html">Прогноз</a>
+            <a href="stats.html">Статистика</a>
+            <a href="resourses.html">Ресурсы</a>
+            <a href="shop.html" class="nav-link" data-image="shop">
+                <img class="nav-icon" src="images/menu icons/shop.png" alt="Главная">
+            </a>
+            <script src="script.js"></script>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <div class="category-menu">
+            <h3 class="menu-title">Категории</h3>
+            <ul>
+                <li><a href="#meteo">Метеоинструменты</a></li>
+                <li><a href="#clothing">Одежда и аксессуары</a></li>
+                <li><a href="#electronics">Электроника</a></li>
+                <li><a href="#books">Книги и руководства</a></li>
+                <li><a href="#subscription">Подписка</a></li>
+            </ul>
+        </div>
+    
+        <div class="sorting-section">
+            <h3 class="menu-title">Сортировка</h3>
+            <label for="sorting">По цене:</label>
+            <select id="sorting">
+                <option value="ascending">По возрастанию</option>
+                <option value="descending">По убыванию</option>
+                <option value="standard">Стандарт</option>
+            </select>
+        </div>
+    
+        <div class="price-filter-section">
+            <h3 class="menu-title">Фильтр цен</h3>
+            <label for="min-price">От:</label>
+            <input type="text" id="min-price" placeholder="Мин. цена"> 
+
+            <label for="max-price">До:</label>
+            <input type="text" id="max-price" placeholder="Макс. цена">
+        </div>
+    </aside>
+
+    <main>
+
+
+        <h1 class="shop-title">Добро пожаловать в WeatherHub Store!</h1>
+        <p class="shop-intro">Исследуйте наш широкий ассортимент продукции, предназначенной для удобства и комфорта в любых погодных условиях. От метеоинструментов и одежды до электроники и уникальных подписок — у нас есть все, что вам нужно, чтобы быть готовыми к переменам природы. Перейдите к категориям ниже и выберите продукты, которые подходят вам!</p>
+        
+        <!-- Метеоинструменты -->
+        <div class="category-container">
+            <h2 class="category-title">Метеоинструменты</h2>
+            <p><i>Обзаведитесь точными измерениями и контролируйте окружающую среду с нашим широким ассортиментом метеоинструментов. От барометров до анемометров - у нас есть все необходимое для измерения и мониторинга погоды в вашем регионе.</i></p>
+            <div class="product-container">
+                <!-- Барометр "Прецизионный" -->
+                <div class="product-item">
+                    <img src="images/products/barometer.webp" alt="Барометр">
+                    <div class="product-info">
+                        <h3 class="product-title">Барометр "Прецизионный"</h3>
+                        <p class="product-description">Точный барометр для предсказания изменений в атмосферном давлении.</p>
+                        <p class="product-price">2500₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+        
+                <!-- Гигрометр "ВлагоКонтроль" -->
+                <div class="product-item">
+                    <img src="images/products/hygrometer.jpeg" alt="Гигрометр">
+                    <div class="product-info">
+                        <h3 class="product-title">Гигрометр "ВлагоКонтроль"</h3>
+                        <p class="product-description">Измеритель влажности воздуха с цифровым дисплеем и подсветкой.</p>
+                        <p class="product-price">1200₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+        
+                <!-- Термометр "Точность+" -->
+                <div class="product-item">
+                    <img src="images/products/thermometer.jpeg" alt="Термометр">
+                    <div class="product-info">
+                        <h3 class="product-title">Термометр "Точность+"</h3>
+                        <p class="product-description">Электронный термометр с высокой точностью измерения температуры.</p>
+                        <p class="product-price">1800₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+        
+                <!-- Анемометр "ВетроМаг" -->
+                <div class="product-item">
+                    <img src="images/products/anemometer.jpeg" alt="Анемометр">
+                    <div class="product-info">
+                        <h3 class="product-title">Анемометр "ВетроМаг"</h3>
+                        <p class="product-description">Измеритель скорости ветра с подсветкой и журналом измерений.</p>
+                        <p class="product-price">3500₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+        
+                <!-- Датчик освещенности "Солнечный контроль" -->
+                <div class="product-item">
+                    <img src="images/products/light_sensor.jpeg" alt="Датчик освещенности">
+                    <div class="product-info">
+                        <h3 class="product-title">Датчик освещенности "Солнечный контроль"</h3>
+                        <p class="product-description">Автоматически регулирует освещение в помещении в зависимости от уровня естественного света.</p>
+                        <p class="product-price">1600₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- Одежда и аксессуары -->
+        <div class="category-container">
+            <h2 class="category-title">Одежда и аксессуары</h2>
+            <p><i>Оснастите себя стильной и функциональной одеждой для любых условий! Здесь вы найдете дождевики, термобелье, уникальные зонты и солнцезащитные очки - все, что нужно для комфортного и модного пребывания на свежем воздухе.</i></p>
+            <div class="product-container">
+                <!-- Дождевик "ГидроГарант" -->
+                <div class="product-item">
+                    <img src="images/products/raincoat.jpg" alt="Дождевик">
+                    <div class="product-info">
+                        <h3 class="product-title">Дождевик "ГидроГарант"</h3>
+                        <p class="product-description">Водонепроницаемый дождевик с дышащей подкладкой.</p>
+                        <p class="product-price">2800₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Термобелье "ТеплоУют" -->
+                <div class="product-item">
+                    <img src="images/products/thermal.jpeg" alt="Термобелье">
+                    <div class="product-info">
+                        <h3 class="product-title">Термобелье "ТеплоУют"</h3>
+                        <p class="product-description">Удобное и теплое термобелье для защиты от холода.</p>
+                        <p class="product-price">1500₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Зонт "АртДизайн" -->
+                <div class="product-item">
+                    <img src="images/products/umbrella.jpeg" alt="Зонт">
+                    <div class="product-info">
+                        <h3 class="product-title">Зонт "АртДизайн"</h3>
+                        <p class="product-description">Стильный зонт с уникальными художественными рисунками.</p>
+                        <p class="product-price">1200₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Солнцезащитные очки "Летний Бриз" -->
+                <div class="product-item">
+                    <img src="images/products/sunglasses.jpeg" alt="Солнцезащитные очки">
+                    <div class="product-info">
+                        <h3 class="product-title">Солнцезащитные очки "Летний Бриз"</h3>
+                        <p class="product-description">Современные очки с защитой от УФ-лучей и стильным дизайном.</p>
+                        <p class="product-price">2000₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Шапка "Сезонная Гармония" -->
+                <div class="product-item">
+                    <img src="images/products/hat.jpeg" alt="Шапка">
+                    <div class="product-info">
+                        <h3 class="product-title">Шапка "Сезонная Гармония"</h3>
+                        <p class="product-description">Уютная и модная шапка подходящая для любого времени года.</p>
+                        <p class="product-price">800₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Перчатки "ТермоКомфорт" -->
+                <div class="product-item">
+                    <img src="images/products/gloves.jpeg" alt="Перчатки">
+                    <div class="product-info">
+                        <h3 class="product-title">Перчатки "ТермоКомфорт"</h3>
+                        <p class="product-description">Теплые перчатки с водонепроницаемой поверхностью.</p>
+                        <p class="product-price">1200₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Электроника -->
+        <div class="category-container">
+            <h2 class="category-title">Электроника</h2>
+            <p><i>Вступайте в эру современных технологий с нашей электроникой для погоды. Метеостанции, веб-камеры, умные устройства и адаптеры для мобильных устройств - ваши надежные помощники в отслеживании и прогнозе погоды.</i></p>
+            <div class="product-container">
+                <!-- Метеостанция для дома "СмартКлимат" -->
+                <div class="product-item">
+                    <img src="images/products/weather_station.jpeg" alt="Метеостанция">
+                    <div class="product-info">
+                        <h3 class="product-title">Метеостанция для дома "СмартКлимат"</h3>
+                        <p class="product-description">Умная метеостанция с приложением для мониторинга погоды в реальном времени.</p>
+                        <p class="product-price">4500₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Погодная камера "SkyWatch" -->
+                <div class="product-item">
+                    <img src="images/products/weather_camera.webp" alt="Погодная камера">
+                    <div class="product-info">
+                        <h3 class="product-title">Погодная камера "SkyWatch"</h3>
+                        <p class="product-description">Камера с высоким разрешением для отслеживания погодных условий в любое время суток.</p>
+                        <p class="product-price">6000₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Умное устройство "Прогноз+" -->
+                <div class="product-item">
+                    <img src="images/products/smart_device.jpeg" alt="Умное устройство">
+                    <div class="product-info">
+                        <h3 class="product-title">Умное устройство "Прогноз+"</h3>
+                        <p class="product-description">Интеллектуальное устройство для точного прогноза погоды в вашем регионе.</p>
+                        <p class="product-price">3800₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Адаптер для мобильных устройств "ПогодаНа360" -->
+                <div class="product-item">
+                    <img src="images/products/weather_adapter.jpeg" alt="Адаптер">
+                    <div class="product-info">
+                        <h3 class="product-title">Адаптер для мобильных устройств "ПогодаНа360"</h3>
+                        <p class="product-description">Адаптер, предоставляющий погодные данные в реальном времени для вашего смартфона.</p>
+                        <p class="product-price">1200₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="category-container">
+            <h2 class="category-title">Книги и руководства</h2>
+            <p><i>Расширьте свои знания о метеорологии с нашими книгами и руководствами. Начните с основ для новичков, изучайте искусство прогнозирования погоды, погружайтесь в интересные факты и окунитесь в увлекательные календари с природными явлениями.</i></p>
+            <div class="product-container">
+                <!-- Книга "Основы метеорологии" -->
+                <div class="product-item">
+                    <img src="images/products/meteorology_book.webp" alt="Книга">
+                    <div class="product-info">
+                        <h3 class="product-title">Книга "Основы метеорологии"</h3>
+                        <p class="product-description">Подробное руководство для начинающих в мире метеорологии.</p>
+                        <p class="product-price">1000₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Руководство "Прогноз погоды на 7 дней" -->
+                <div class="product-item">
+                    <img src="images/products/weather_guide.webp" alt="Руководство">
+                    <div class="product-info">
+                        <h3 class="product-title">Руководство "Прогноз погоды на 7 дней"</h3>
+                        <p class="product-description">Практическое руководство по самостоятельному прогнозированию погоды.</p>
+                        <p class="product-price">800₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Книга "Интересные факты о погоде" -->
+                <div class="product-item">
+                    <img src="images/products/weather_facts_book.webp" alt="Книга">
+                    <div class="product-info">
+                        <h3 class="product-title">Книга "Интересные факты о погоде"</h3>
+                        <p class="product-description">Увлекательные факты и статьи о необычных явлениях в атмосфере для детей.</p>
+                        <p class="product-price">1200₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <!-- Календарь "Природные Явления" -->
+                <div class="product-item">
+                    <img src="images/products/natural_phenomena_calendar.jpeg" alt="Календарь">
+                    <div class="product-info">
+                        <h3 class="product-title">Календарь "Природные Явления"</h3>
+                        <p class="product-description">Календарь с красочными изображениями природных явлений.</p>
+                        <p class="product-price">600₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Подписка -->
+        <div class="category-container">
+            <h2 class="category-title">Подписка</h2>
+            <p><i>Станьте частью нашего метеорологического сообщества с нашей подпиской. Получайте ежемесячные факты, эксклюзивные прогнозы, скидки и участвуйте в метеорологических мероприятиях. Выбирайте подписку по своему вкусу и получайте еще больше выгод и бонусов.</i></p>
+            <div class="product-container">
+                <!-- Книга "Основы метеорологии" -->
+                <div class="product-item">
+                    <img src="images/products/subscribtion.jpeg" alt="Книга">
+                    <div class="product-info">
+                        <h3 class="product-title">Ежемесячная подписка "WeatherInsider"</h3>
+                        <p class="product-description">Получайте ежемесячные рассылки с интересными фактами о текущей погоде и эксклюзивным доступом к прогнозам и статьям.</p>
+                        <p class="product-price">300₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="images/products/subscribtion.jpeg" alt="Книга">
+                    <div class="product-info">
+                        <h3 class="product-title">Подписка на 3 месяца "WeatherExplorer"</h3>
+                        <p class="product-description">Те же преимущества, что и при ежемесячной подписке, но с еще большей скидкой.</p>
+                        <p class="product-price">800₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="images/products/subscribtion.jpeg" alt="Книга">
+                    <div class="product-info">
+                        <h3 class="product-title">Подписка на 6 месяцев "WeatherMaster"</h3>
+                        <p class="product-description">Те же преимущества, что и при ежемесячной подписке, но с еще большей скидкой.</p>
+                        <p class="product-price">1500₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="images/products/subscribtion.jpeg" alt="Книга">
+                    <div class="product-info">
+                        <h3 class="product-title">Годовая подписка "WeatherElite"</h3>
+                        <p class="product-description">Все вышеуказанные преимущества с максимальной скидкой и дополнительными бонусами.</p>
+                        <p class="product-price">2500₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <img src="images/products/subscribtion.jpeg" alt="Книга">
+                    <div class="product-info">
+                        <h3 class="product-title">Подарочная подписка "LongTermChampion"</h3>
+                        <p class="product-description">Эксклюзивные подарки для долгосрочных подписчиков.</p>
+                        <p class="product-price">5000₽</p>
+                        <button class="cart-button">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="cart">
+            <div class="cart">
+                <button class="cart-btn" id="cartBtn" onclick="openPopup()">
+                    <img src="images/menu icons/cart.png">
+                </button>
+            </div>
+        </section>
+
+        <div class="popup" id="popup">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="btn-close" onclick="openPopup()"><img src="images/menu icons/close.png" alt=""></div>
+                <h2>Корзина</h2>
+                <p>Насрите мне в рот</p>
+            </div>
+        </div>
+        <script src="shop.js"></script>
+        
+        
+
+
+
+    </main>
+    
+
+    
+    
+
+    <footer>
+        <div class="footer-item information">
+            <h3>О нас</h3>
+            <p>Добро пожаловать на WeatherHub - ваш надежный источник актуальной погодной информации. Мы заботимся о вашем комфорте, предоставляя самые точные прогнозы погоды с 2023 года. Наша миссия - помочь вам быть готовыми к любым погодным условиям, чтобы каждый ваш выход на улицу был комфортным и безопасным.</p>
+        </div>
+
+        <div class="footer-item navigation">
+            <h3>Навигация</h3>
+            <a href="index.html">Главная</a><br>
+            <a href="weather.html">Прогноз</a><br>
+            <a href="stats.html">Статистика</a><br>
+            <a href="resourses.html">Ресурсы</a><br>
+            <a href="shop.html">Магазин</a><br>
+        </div>
+
+        <div class="footer-item contacts">
+            <h3>Контакты</h3>
+            <div id="social-media">
+                <a href="#" class="sm-button tg">
+                    <img src="images/sm-icons/tg.png" alt="Telegram">
+                </a>
+                <a href="#" class="sm-button youtube">
+                    <img src="images/sm-icons/yt.png" alt="YouTube">
+                </a>
+                <a href="#" class="sm-button inst">
+                    <img src="images/sm-icons/tt.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2023 WeatherHub. Все права защищены.</div>
+    </footer>
+</body>
+</html>

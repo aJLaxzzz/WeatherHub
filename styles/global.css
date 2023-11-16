@@ -1,0 +1,36 @@
+/* Общие стили */
+
+:root {
+    --main-bg-color: #222831;
+    --accent-color: #ff5722;
+    --text-color: #ececec;
+    --header-bg-color: #00404a;
+    --font-headers: 'Oswald', sans-serif;
+    --font-text: 'Nunito', sans-serif;
+    --font-accent: 'Dancing Script', cursive;
+}
+
+body {
+    font-family: var(--font-text);
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+}
+
+/* Дополнительные стили для header и footer */
+header nav a,
+.footer-item a,
+.footer-item a:hover {
+    color: var(--text-color); /* Используем общий цвет текста для ссылок в header и footer */
+}
+
+a {
+    color: #3498db; /* Изначальный цвет ссылок */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; /* Анимация изменения цвета */
+}
+
+a:hover {
+    color: #e74c3c; /* Цвет ссылок при наведении */
+}

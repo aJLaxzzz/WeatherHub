@@ -1,0 +1,86 @@
+/*color cards*/
+#color-cards {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+    flex-wrap: wrap;
+}
+
+#color-cards .color-card {
+    cursor:cell;
+	position: relative;
+	width: 15rem;
+	height: 27rem;
+	background: #fff;
+	margin: 40px;
+	border-radius: 20px;
+	overflow: hidden;
+	transition: 0.5s;
+}
+
+#color-cards:has(.color-card:hover) > .color-card {
+	filter: blur(20px);
+	transform: scale(0.95);
+	opacity: 0.5;
+}
+
+#color-cards .color-card:hover {
+	filter: blur(0px) !important;
+	transform: scale(1.05) !important;
+	opacity: 1 !important;
+}
+
+#color-cards .color-card .color-card-circle {
+	position: relative;
+    top: -15%;
+    left: -12%;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	clip-path: circle(180px at center 0);
+	text-align: center;
+	color: #fff;
+	font-size: 4.5em;
+	padding: 30px;
+}
+
+#color-cards .color-card .color-card-content {
+	position: absolute;
+	bottom: 20px;
+	padding: 0 35px;
+	text-align: center;
+}
+
+#color-cards .color-card .color-card-content p {
+	color: #666;
+}
+
+#color-cards .color-card .color-card-content button {
+	position: relative;
+	display: inline-block;
+	padding: 10px 20px;
+	background: #000;
+	color: #fff;
+	border-radius: 40px;
+	text-decoration: none;
+	margin-top: 20px;
+	border: none;
+	font-size: 1rem;
+}
+
+#color-cards .color-card:nth-child(1) .color-card-circle,
+#color-cards .color-card:nth-child(1) .color-card-content button {
+	background: darkgoldenrod;
+}
+
+#color-cards .color-card:nth-child(2) .color-card-circle,
+#color-cards .color-card:nth-child(2) .color-card-content button {
+	background: red;
+}
+
+#color-cards .color-card:nth-child(3) .color-card-circle,
+#color-cards .color-card:nth-child(3) .color-card-content button {
+    background: purple;
+}

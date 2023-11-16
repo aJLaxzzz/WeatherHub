@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherHub - ваш источник погоды</title>
+    <link rel="icon" href="images/menu icons/logo-white.png" sizes="any">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/menu icons/logo-white.png" alt="Логотип">
+            <h1>WeatherHub</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link" data-image="home">
+                <img class="nav-icon" src="images/menu icons/home.png" alt="Главная">
+            </a>
+            <a href="weather.html">Прогноз</a>
+            <a href="stats.html">Статистика</a>
+            <a href="resourses.html">Ресурсы</a>
+            <a href="shop.html">Магазин</a>
+            <script src="script.js"></script>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section>
+            <h1 id="welcomeText">Добро пожаловать на WeatherHub – вашем источнике всегда точной погодной информации!</h1>
+            <p>
+                WeatherHub – это ваш надежный гид в мире погоды. Мы стремимся предоставить вам самую свежую и точную
+                информацию о текущих погодных условиях. Наши уникальные разделы позволят вам не только следить за
+                прогнозом, но и узнавать интересные факты о климате, а также подготовиться к любым погодным условиям
+                с нашим магазином товаров.
+            </p>
+        </section>
+        
+        <script src="welcomeScript.js"></script>
+        
+        <section>
+            <div class="weather-widget">
+                <h2>Погодный виджет</h2>
+                <p>Узнайте, какая погода у вас прямо сейчас. Воспользуйтесь нашим удобным погодным виджетом, чтобы
+                    быть в курсе изменений в реальном времени.</p>
+                <!-- Добавьте код для погодного виджета, если у вас есть такая функциональность -->
+            </div>
+        </section>
+        <section>
+            <h2>Регистрация</h2>
+
+            <p class="call-to-action">
+                Не упустите шанс быть в курсе погоды! Переходите к прогнозу или изучите увлекательные статьи прямо
+                сейчас. Подписывайтесь на наши уведомления, чтобы всегда быть в курсе изменений!
+            </p>
+
+            <div class="form-section">
+                <div class="color"></div>
+                <div class="color"></div>
+                <div class="color"></div>
+                <div class="boxx">
+                    <div class="square" style="--i:0;"></div>
+                    <div class="square" style="--i:1;"></div>
+                    <div class="square" style="--i:2;"></div>
+                    <div class="square" style="--i:3;"></div>
+                    <div class="square" style="--i:4;"></div>
+                    <div class="form-container">
+                        <div class="form">
+                            <h2>Регистрация</h2>
+                            <form>
+                                <div class="input-box">
+                                    <input type="text" placeholder="Имя">
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" placeholder="Номер телефона">
+                                </div>
+                                <div class="input-box">
+                                    <input type="text" placeholder="Почта">
+                                </div>
+                                <div class="input-box">
+                                    <input type="password" placeholder="Пароль">
+                                </div>
+                                <div class="input-box">
+                                    <input type="submit" value="Отправить">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="footer-item information">
+            <h3>О нас</h3>
+            <p>Добро пожаловать на WeatherHub - ваш надежный источник актуальной погодной информации. Мы заботимся о вашем комфорте, предоставляя самые точные прогнозы погоды с 2023 года. Наша миссия - помочь вам быть готовыми к любым погодным условиям, чтобы каждый ваш выход на улицу был комфортным и безопасным.</p>
+        </div>
+
+        <div class="footer-item navigation">
+            <h3>Навигация</h3>
+            <a href="index.html">Главная</a><br>
+            <a href="weather.html">Прогноз</a><br>
+            <a href="stats.html">Статистика</a><br>
+            <a href="resourses.html">Ресурсы</a><br>
+            <a href="shop.html">Магазин</a><br>
+        </div>
+
+        <div class="footer-item contacts">
+            <h3>Контакты</h3>
+            <div id="social-media">
+                <a href="#" class="sm-button tg">
+                    <img src="images/sm-icons/tg.png" alt="Telegram">
+                </a>
+                <a href="#" class="sm-button youtube">
+                    <img src="images/sm-icons/yt.png" alt="YouTube">
+                </a>
+                <a href="#" class="sm-button inst">
+                    <img src="images/sm-icons/tt.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2023 WeatherHub. Все права защищены.</div>
+    </footer>
+</body>
+
+</html>
