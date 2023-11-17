@@ -152,5 +152,47 @@ input[type="button"]:hover {
     border-color: var(--accent-color);
 }
 
+.weather-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.weather-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 1s ease-in-out;
+    transform: translateY(-100vh);
+}
+
+.weather-image.left img {
+    transform-origin: right center;
+}
+
+.weather-image-right img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 1s ease-in-out;
+    transform-origin: left center;
+    margin-right: 30px;
+    transform: translateX(-100%); /* изменено на translateX(-100%) */
+    transition: transform 0.5s ease-in-out; /* Используем кубическую функцию для более плавного движения */
+}
+
+.weather-section-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.weather-info-right {
+    order: 1;
+}
+
+
 
 
