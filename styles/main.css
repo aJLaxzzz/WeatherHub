@@ -128,3 +128,29 @@ input[type="button"]:hover {
     position: absolute;
     left: 0;
 }
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery-img {
+    margin: 5px;
+    overflow: hidden;
+    border: 2px solid gray;
+    border-radius: 8px;
+    max-width: 30%;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-color);
+}
+
+
+
