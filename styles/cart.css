@@ -5,7 +5,11 @@
     right: 5%;
 }
 
-
+#cart-products{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
 .cart-btn {
     cursor: pointer;
@@ -109,13 +113,35 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     background: whitesmoke;
-    width: 450px;
-    height: 220px;
+    width:50%;
+    height: 55%;
     z-index: 2;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
 }
+
+#order-message {
+    font-size: 24px; /* Измените размер шрифта по вашему усмотрению */
+    font-weight: bold; /* Жирный текст, если нужно */
+    text-align: center; /* Центрируем текст */
+    margin-top: 20px; /* Немного отступаем сверху */
+}
+#cart-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cart-info {
+    text-align: center;
+}
+
+#order-button {
+    margin-top: 10px; /* Можете настроить отступ сверху по своему усмотрению */
+}
+
+
 
 .popup .btn-close{
     cursor: pointer;
@@ -128,5 +154,98 @@
     color: black;
 }
 
+
+
+.cart-item {
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.item-thumbnail {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.item-name {
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.item-quantity button {
+    background-color: #4CAF50;
+    color: whitesmoke;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.item-total-price {
+    font-weight: bold;
+}
+
+#order-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#order-button:hover {
+    background-color: #45a049;
+}
+
+#order-button:active {
+    transform: scale(0.95); /* Масштабирование при активации (нажатии) */
+}
+
+
+.item-quantity-number {
+    margin: 0 5px;
+    color: black;
+    font-weight: bold;
+}
+
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.item-quantity button {
+    background-color: #4CAF50;
+    color: whitesmoke;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.item-quantity button:hover {
+    background-color: #45a049;
+}
+
+.item-quantity span {
+    margin: 0 5px;
+    color: black;
+    font-weight: bold;
+}
+
+#cart-content {
+    max-height: 45%; /* Настройте максимальную высоту по вашему усмотрению */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
+}
 
 

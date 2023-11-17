@@ -1,51 +1,151 @@
-function openPopup(){
-    document.getElementById("popup").classList.toggle("active");
-    displayCart();
-}
-
 let cartItems = [];
 
-function addItem(itemId){
-    var item = {id: itemId, name: getItemName(itemId), price: getItemPrice(itemId), quantity: 1};
-    let isInCart = cartItems.find(items => items.id == itemId);
-    if (isInCart){
-        isInCart.quantity++;
-    }
-    else{
-        cartItems.push(item);
-    }
+function openPopup() {
+    const popup = document.getElementById("popup");
+
+    popup.classList.add("active");
     displayCart();
 }
 
+function closePopup() {
+    const popup = document.getElementById("popup");
+
+    // Показываем информацию о товарах и кнопку "Заказать"
+    const cartInfo = document.getElementById('cart-info');
+    const orderButton = document.getElementById('order-button');
+
+    cartInfo.style.display = 'block';
+    orderButton.style.display = 'block';
+
+    // Скрываем сообщение о заказе
+    const orderMessage = document.getElementById('order-message');
+    orderMessage.style.display = 'none';
+
+    // Закрываем всплывающее окно
+    popup.classList.remove("active");
+}
+
+
+function placeOrder() {
+    cartItems = [];
+    displayCart();
+
+    // Скрываем информацию о товарах и кнопку "Заказать"
+    const cartInfo = document.getElementById('cart-info');
+    const orderButton = document.getElementById('order-button');
+
+    cartInfo.style.display = 'none';
+    orderButton.style.display = 'none';
+
+    // Показываем сообщение о заказе
+    const orderMessage = document.getElementById('order-message');
+    orderMessage.style.display = 'block';
+}
+
+
+
 function displayCart() {
-    const cartElement = document.getElementById('cart');
+    const cartElement = document.getElementById('cart-content');
+    const totalItemsElement = document.getElementById('total-items');
+    const totalPriceElement = document.getElementById('total-price');
+
     cartElement.innerHTML = '';
+
+    let totalItems = 0;
+    let totalPrice = 0;
 
     cartItems.forEach(item => {
         const itemDiv = document.createElement('div');
-        itemDiv.innerHTML = `${item.name} - Количество: ${item.quantity} - Цена: ${item.price * item.quantity}₽
-            <button onclick="increaseQuantity(${item.id})"><img src="images/plus.png" alt="plus"></button>
-            <button onclick="removeItem(${item.id})"><img src="images/bin.png" alt="bin"></button>`;
+        itemDiv.className = 'cart-item';
+
+        const imgElement = document.createElement('img');
+        imgElement.src = item.image;
+        imgElement.alt = item.name;
+        imgElement.className = 'item-thumbnail';
+        itemDiv.appendChild(imgElement);
+
+        const nameElement = document.createElement('p');
+        nameElement.textContent = item.name;
+        nameElement.className = 'item-name';
+        itemDiv.appendChild(nameElement);
+
+        const quantityElement = document.createElement('div');
+        quantityElement.className = 'item-quantity';
+        quantityElement.innerHTML = `
+            <button class="quantity-btn" onclick="decreaseQuantity('${item.name}')">-</button>
+            <span class="item-quantity-number">${item.quantity}</span>
+            <button class="quantity-btn" onclick="increaseQuantity('${item.name}')">+</button>
+        `;
+        itemDiv.appendChild(quantityElement);
+
+        // Добавление обработчиков событий к кнопкам
+        const decreaseButton = quantityElement.querySelector('.quantity-btn:first-child');
+        const increaseButton = quantityElement.querySelector('.quantity-btn:last-child');
+
+        decreaseButton.addEventListener('click', function () {
+            decreaseQuantity(item.name);
+        });
+
+        increaseButton.addEventListener('click', function () {
+            increaseQuantity(item.name);
+        });
+
+        const totalPriceElementItem = document.createElement('p');
+        totalPriceElementItem.textContent = `Общая цена: ${item.price * item.quantity}₽`;
+        totalPriceElementItem.className = 'item-total-price';
+        itemDiv.appendChild(totalPriceElementItem);
+
+        totalItems += item.quantity;
+        totalPrice += item.price * item.quantity;
+
         cartElement.appendChild(itemDiv);
     });
 
-    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-    const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-
-    const summaryDiv = document.createElement('div');
-    summaryDiv.textContent = `Всего товаров: ${totalItems} - Цена всего: $${totalPrice}`;
-    cartElement.appendChild(summaryDiv);
+    totalItemsElement.textContent = `Общее количество товаров: ${totalItems}`;
+    totalPriceElement.textContent = `Общая стоимость: ${totalPrice}₽`;
 }
 
-function removeItem(itemId){
-    cartItems = cartItems.filter(item => item.id !== itemId);
-    displayCart();
-}
 
-function increaseQuantity(itemId){
-    let isInCart = cartItems.find(items => items.id == itemId);
-    if (isInCart){
+
+
+
+function addItem(itemName, itemPrice, itemImage) {
+    var item = { name: itemName, price: itemPrice, quantity: 1, image: itemImage };
+    let isInCart = cartItems.find(items => items.name === itemName);
+
+    if (isInCart) {
         isInCart.quantity++;
+    } else {
+        cartItems.push(item);
     }
+
+    displayCart(); // Обновление корзины после добавления товара
+}
+
+
+function removeItem(itemName){
+    cartItems = cartItems.filter(item => item.name !== itemName);
     displayCart();
 }
+
+function increaseQuantity(itemName) {
+    const itemIndex = cartItems.findIndex(item => item.name === itemName);
+    if (itemIndex !== -1) {
+        cartItems[itemIndex].quantity++;
+        displayCart();
+    }
+}
+
+function decreaseQuantity(itemName) {
+    const itemIndex = cartItems.findIndex(item => item.name === itemName);
+    if (itemIndex !== -1) {
+        if (cartItems[itemIndex].quantity > 1) {
+            cartItems[itemIndex].quantity--;
+        } else {
+            cartItems.splice(itemIndex, 1);
+        }
+        displayCart();
+    }
+}
+
+
