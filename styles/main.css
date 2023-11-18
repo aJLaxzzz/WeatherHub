@@ -2,7 +2,7 @@
 
 main {
     max-width: 1000px;
-    margin: 150px auto 20px; /* Увеличен отступ сверху main */
+    margin: 150px auto 20px;
     padding: 20px;
     background-color: var(--main-bg-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
