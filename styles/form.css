@@ -138,3 +138,10 @@
     font-weight: 200;
 }
 
+
+@media screen and (max-width: 768px){ 
+    .form-section {
+        width: 90%;
+    }
+}
+
