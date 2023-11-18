@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let image = document.querySelector('.weather-image img');
+    let image = document.querySelector('.weather-image-left img');
     
     // Изначально устанавливаем translateY за пределами видимой области
     image.style.transform = 'translateY(-100vh)';

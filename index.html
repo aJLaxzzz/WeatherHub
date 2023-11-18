@@ -20,7 +20,7 @@
             <img src="images/menu icons/logo-white.png" alt="Логотип">
             <h1>WeatherHub</h1>
         </div>
-        <nav>
+        <nav class="pc-menu">
             <a href="index.html" class="nav-link" data-image="home">
                 <img class="nav-icon" src="images/menu icons/home.png" alt="Главная">
             </a>
@@ -28,9 +28,22 @@
             <a href="stats.html">Статистика</a>
             <a href="resourses.html">Ресурсы</a>
             <a href="shop.html">Магазин</a>
-            <script src="script.js"></script>
         </nav>
+        <div class="mobile-menu">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="burger-icon"><span></span></label>
+            <div class="menu-items">
+                <a href="index.html" class="nav-link" data-image="home">
+                    <img class="nav-icon" src="images/menu icons/home.png" alt="Главная">
+                </a>
+                <p><a href="weather.html" class="head-a">Прогноз</a></p>
+                <p><a href="stats.html" class="head-a">Статистика</a></p>
+                <p><a href="resourses.html" class="head-a">Ресурсы</a></p>
+                <p><a href="shop.html" class="head-a">Магазин</a></p>
+            </div>
+        </div>
     </header>
+    
 
     <main id="main">
         <section>
@@ -45,7 +58,7 @@
         
         <script src="welcomeScript.js"></script>
         
-        <section class="weather-section">
+        <section class="weather-section-left">
             <div class="weather-info-left">
                 <h2>Погода: Явление и Важность</h2>
                 <p>
@@ -65,7 +78,7 @@
                     интересным фактам и рекомендациям.
                 </p>
             </div>
-            <div class="weather-image left">
+            <div class="weather-image-left">
                 <img src="images/index-image.jpeg" alt="Погода">
             </div>
         </section>
@@ -143,7 +156,7 @@
         </section>
 
         <section>
-            <h4 id="gallery"> Галлерея </h4>
+            <h2 id="gallery"> Галлерея </h2>
             <div class="gallery">
                 <img src="images/gallery/img1.jpeg" class="gallery-img">			
                 <img src="images/gallery/img2.jpeg" class="gallery-img">	
@@ -190,6 +203,7 @@
         </div>
         <div class="copyright">&copy; 2023 WeatherHub. Все права защищены.</div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>

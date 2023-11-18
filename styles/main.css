@@ -152,14 +152,14 @@ input[type="button"]:hover {
     border-color: var(--accent-color);
 }
 
-.weather-section {
+.weather-section-left {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 
-.weather-image img {
+.weather-image-left img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -167,7 +167,7 @@ input[type="button"]:hover {
     transform: translateY(-100vh);
 }
 
-.weather-image.left img {
+.weather-image-left img {
     transform-origin: right center;
 }
 
@@ -191,6 +191,43 @@ input[type="button"]:hover {
 
 .weather-info-right {
     order: 1;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 767px) {
+    main {
+        margin-top: 100px; /* Adjusted top margin for smaller screens */
+    }
+
+    /* Adjust font size for better readability on smaller screens */
+    h2, main h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    /* Adjust other styles as needed for mobile devices */
+    .weather-section-left,
+    .weather-section-right {
+        flex-direction: column;
+    }
+
+    .gallery-img {
+        max-width: 100%; /* Ширина 100% для полного экрана на мобильных устройствах */
+    }
+
+    .weather-info-right {
+        order: -1;
+    }
+
+    .weather-image-left img,
+    .weather-image-right img {
+        width: 100%;
+        transform: none; /* Reset the transform for mobile view */
+    }
+
 }
 
 

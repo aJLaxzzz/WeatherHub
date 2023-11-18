@@ -63,7 +63,7 @@
 
 .form-container {
     position: relative;
-    width: 400px;
+    width: 100%;
     min-height: 400px;
     background: rgba(102, 102, 102, 0.1);
     border-radius: 10px;

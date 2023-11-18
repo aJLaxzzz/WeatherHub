@@ -171,3 +171,21 @@ footer {
     grid-area: c4;
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    footer {
+        grid-template-columns: 1fr; /* Одна колонка для мобильных устройств */
+        grid-template-areas: 
+        "c1"
+        "c2"
+        "c3"
+        "c4";
+        width: 96%;
+        height: 90%;
+    }
+
+    .footer-item {
+        margin: 10px 0; /* Уменьшаем отступы для элементов footer на мобильных устройствах */
+    }
+}
+

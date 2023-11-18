@@ -19,16 +19,28 @@
             <img src="images/menu icons/logo-white.png" alt="Логотип">
             <h1>WeatherHub</h1>
         </div>
-        <nav>
+        <nav class="pc-menu">
             <a href="index.html">Главная</a>
             <a href="weather.html">Прогноз</a>
             <a href="stats.html">Статистика</a>
             <a href="resourses.html">Ресурсы</a>
             <a href="shop.html" class="nav-link" data-image="shop">
-                <img class="nav-icon" src="images/menu icons/shop.png" alt="Главная">
+                <img class="nav-icon" src="images/menu icons/shop.png" alt="Магазин">
             </a>
-            <script src="script.js"></script>
         </nav>
+        <div class="mobile-menu">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="burger-icon"><span></span></label>
+            <div class="menu-items">
+                <p><a href="index.html" class="head-a">Главная</a></p>
+                <p><a href="weather.html" class="head-a">Прогноз</a></p>
+                <p><a href="stats.html" class="head-a">Статистика</a></p>
+                <p><a href="resourses.html" class="head-a">Ресурсы</a></p>
+                <a href="shop.html" class="nav-link" data-image="shop">
+                    <img class="nav-icon" src="images/menu icons/shop.png" alt="Магазин">
+                </a>
+            </div>
+        </div>
     </header>
 
     <aside class="sidebar">
@@ -436,5 +448,6 @@
         </div>
         <div class="copyright">&copy; 2023 WeatherHub. Все права защищены.</div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

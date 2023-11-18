@@ -74,3 +74,137 @@ nav a img {
     margin: 0 auto;
 }
 
+
+.mobile-menu{
+    display: none;
+}
+
+.menu-items a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    display: flex;
+    font-size: 1.5em;
+    align-items: center;
+    position: relative;
+}
+
+.menu-items a:hover {
+    color: var(--accent-color);
+}
+
+.menu-items a:hover::before {
+    content: url('images/menu icons/home-cover.png');
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.menu-items a img {
+    vertical-align: middle;
+}
+
+.menu-items a img {
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px){ 
+    .pc-menu {
+        display: none;
+    }
+
+    .menu-items {
+        display: none;
+    }
+
+    .menu-toggle{
+        display: none;
+    }
+    
+    .mobile-menu{
+        display: block;
+    }
+   
+    .menu-toggle:checked + .burger-icon + .menu-items {
+        display: flex;
+    }
+
+    .menu-items {
+        display: none;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--header-bg-color);
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    
+    .burger-icon {
+        position: fixed;
+        top: 5%;
+        right: 8%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .burger-icon span {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background-color: rgb(255, 255, 255);
+        top: 50%;
+        transition: opacity 1s ease-in-out;
+        opacity: 1;
+    }
+
+    .menu-toggle:checked + .burger-icon span {
+        opacity: 0;
+    }
+    
+    .burger-icon::before,
+    .burger-icon::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background-color: rgb(255, 255, 255);
+        top: 50%;
+        transition: all 1s ease-in-out;
+    }
+
+    .burger-icon::before {
+        top: 90%;
+    }
+
+    .burger-icon::after {
+        top: 10%;
+    }
+
+    /* Анимация для палочек */
+    
+
+    .menu-toggle:checked + .burger-icon::before {
+        transform: rotate(-45deg) translateY(-570%);
+        background-color: var(--accent-color);
+    }
+
+    .menu-toggle:checked + .burger-icon::after {
+        transform: rotate(45deg) translateY(570%);
+        background-color: var(--accent-color);
+    }
+
+}
+
