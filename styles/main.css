@@ -123,7 +123,7 @@ input[type="button"]:hover {
 
 .tips-list li:before {
     content: "•"; /* Замените символ на любой другой, если нужно */
-    color: #1F51FF; /* Цвет символа */
+    color: var(--accent-color); /* Цвет символа */
     font-size: 1.2em;
     position: absolute;
     left: 0;
