@@ -152,46 +152,22 @@ input[type="button"]:hover {
     border-color: var(--accent-color);
 }
 
-.weather-section-left {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.weather-image-left img {
-    width: 100%;
+.weather-image img {
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
-    transition: transform 1s ease-in-out;
-    transform: translateY(-100vh);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.weather-image-left img {
-    transform-origin: right center;
-}
-
-.weather-image-right img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 1s ease-in-out;
-    transform-origin: left center;
-    margin-right: 30px;
-    transform: translateX(-100%); /* изменено на translateX(-100%) */
-    transition: transform 0.5s ease-in-out; /* Используем кубическую функцию для более плавного движения */
-}
-
-.weather-section-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.weather-info-right {
-    order: 1;
-}
+#head-scroll {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+    -webkit-transition: opacity 1.5s, -webkit-transform 1.5s;
+    transition: opacity 1.5s, -webkit-transform 1.5s;
+    transition: opacity 1.5s, transform 1.5s;
+    transition: opacity 1.5s, transform 1.5s, -webkit-transform 1.5s;
+  }
 
 /* Mobile styles */
 @media only screen and (max-width: 767px) {
@@ -209,23 +185,9 @@ input[type="button"]:hover {
     }
 
     /* Adjust other styles as needed for mobile devices */
-    .weather-section-left,
-    .weather-section-right {
-        flex-direction: column;
-    }
 
     .gallery-img {
         max-width: 100%; /* Ширина 100% для полного экрана на мобильных устройствах */
-    }
-
-    .weather-info-right {
-        order: -1;
-    }
-
-    .weather-image-left img,
-    .weather-image-right img {
-        width: 100%;
-        transform: none; /* Reset the transform for mobile view */
     }
 
 }

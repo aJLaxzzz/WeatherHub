@@ -32,6 +32,28 @@
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="burger-icon"><span></span></label>
             <div class="menu-items">
+                <div class="sorting-section-mobile">
+                    <a class="menu-title">Сортировка</a>
+                    <label for="sorting">По цене:</label>
+                    <select id="sorting">
+                        <option value="standard">Стандарт</option>
+                        <option value="ascending">По возрастанию</option>
+                        <option value="descending">По убыванию</option>
+                    </select>
+                </div>
+            
+                <div class="price-filter-section">
+                    <a class="menu-title">Фильтр цен</a>
+                    <div>
+                        <label for="min-price">От:</label>
+                        <input type="text" id="min-price" placeholder="Мин. цена">
+                    </div>
+                    <div>
+                        <label for="max-price">До:</label>
+                        <input type="text" id="max-price" placeholder="Макс. цена">
+                    </div>
+                    <button id="filter-button">Применить фильтр</button>
+                </div>
                 <p><a href="index.html" class="head-a">Главная</a></p>
                 <p><a href="weather.html" class="head-a">Прогноз</a></p>
                 <p><a href="stats.html" class="head-a">Статистика</a></p>
@@ -44,7 +66,7 @@
     </header>
 
     <aside class="sidebar">
-        <div class="category-menu">
+        <div class="category-menu" >
             <h3 class="menu-title">Категории</h3>
             <ul>
                 <li><a href="#meteo">Метеоинструменты</a></li>
@@ -85,7 +107,7 @@
         <p class="shop-intro">Исследуйте наш широкий ассортимент продукции, предназначенной для удобства и комфорта в любых погодных условиях. От метеоинструментов и одежды до электроники и уникальных подписок — у нас есть все, что вам нужно, чтобы быть готовыми к переменам природы. Перейдите к категориям ниже и выберите продукты, которые подходят вам!</p>
         
         <!-- Метеоинструменты -->
-        <div class="category-container">
+        <div class="category-container" id="head-scroll">
             <h2 class="category-title" id="meteo">Метеоинструменты</h2>
             <p><i>Обзаведитесь точными измерениями и контролируйте окружающую среду с нашим широким ассортиментом метеоинструментов. От барометров до анемометров - у нас есть все необходимое для измерения и мониторинга погоды в вашем регионе.</i></p>
             <div class="product-container">
@@ -149,7 +171,7 @@
 
 
         <!-- Одежда и аксессуары -->
-        <div class="category-container">
+        <div class="category-container" id="head-scroll">
             <h2 class="category-title" id="clothing">Одежда и аксессуары</h2>
             <p><i>Оснастите себя стильной и функциональной одеждой для любых условий! Здесь вы найдете дождевики, термобелье, уникальные зонты и солнцезащитные очки - все, что нужно для комфортного и модного пребывания на свежем воздухе.</i></p>
             <div class="product-container">
@@ -222,7 +244,7 @@
         </div>
 
         <!-- Электроника -->
-        <div class="category-container">
+        <div class="category-container" id="head-scroll">
             <h2 class="category-title" id="electronics">Электроника</h2>
             <p><i>Вступайте в эру современных технологий с нашей электроникой для погоды. Метеостанции, веб-камеры, умные устройства и адаптеры для мобильных устройств - ваши надежные помощники в отслеживании и прогнозе погоды.</i></p>
             <div class="product-container">
@@ -273,7 +295,7 @@
         </div>
 
 
-        <div class="category-container">
+        <div class="category-container" id="head-scroll">
             <h2 class="category-title" id="books">Книги и руководства</h2>
             <p><i>Расширьте свои знания о метеорологии с нашими книгами и руководствами. Начните с основ для новичков, изучайте искусство прогнозирования погоды, погружайтесь в интересные факты и окунитесь в увлекательные календари с природными явлениями.</i></p>
             <div class="product-container">
@@ -323,7 +345,7 @@
             </div>
         </div>
         <!--Подписка -->
-        <div class="category-container">
+        <div class="category-container" id="head-scroll">
             <h2 class="category-title" id="subscription">Подписка</h2>
             <p><i>Станьте частью нашего метеорологического сообщества с нашей подпиской. Получайте ежемесячные факты, эксклюзивные прогнозы, скидки и участвуйте в метеорологических мероприятиях. Выбирайте подписку по своему вкусу и получайте еще больше выгод и бонусов.</i></p>
             <div class="product-container">
@@ -408,8 +430,7 @@
              
 
     </main>
-    <script src="sort.js"></script>
-    <script src="filter.js"></script>
+    <script src="contentshow.js"></script>
 
 
     
@@ -449,5 +470,7 @@
         <div class="copyright">&copy; 2023 WeatherHub. Все права защищены.</div>
     </footer>
     <script src="script.js"></script>
+    <script src="sort.js"></script>
+    <script src="filter.js"></script>
 </body>
 </html>

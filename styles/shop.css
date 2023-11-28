@@ -89,3 +89,15 @@
     padding: 20px;
 }
 
+
+/* Media Query for mobile devices */
+@media screen and (max-width: 768px) {
+    .product-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-item {
+        margin-bottom: 20px;
+    }
+}
