@@ -180,6 +180,17 @@ input[type="button"]:hover {
     margin: 10px 0;
 }
 
+.fact img,
+.article img,
+.record img {
+    width: 70%;
+    height: auto;
+    margin: 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Mobile styles */
 @media only screen and (max-width: 767px) {
     main {

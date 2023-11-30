@@ -44,6 +44,7 @@
             </div>
         </div>
     </header>
+    <script src="script.js"></script>
     
     <main id="main">
         <h1>Прогноз погоды в России</h1>
@@ -65,7 +66,7 @@
         <div id="weather-container">
         
             <!-- Текущая погода -->
-            <div class="current-weather-card">
+            <div class="current-weather-card" id="head-scroll">
                 <div class="current-weather-header">
                     <div class="current-weather-date-time">
                         <div class="current-weather-city">Москва</div>
@@ -90,7 +91,7 @@
             </div>
         
             <!-- Прогноз на неделю -->
-            <div class="week-forecast">
+            <div class="week-forecast" id="head-scroll">
                 <h2>Прогноз на неделю</h2>
                 <div class="week-weather-cards">
                     <!-- Карточки на неделю (повторите этот блок для каждого дня) -->
@@ -145,7 +146,7 @@
             
         
             <!-- Подробное описание погоды на каждый день -->
-            <div class="weather-cards">
+            <div class="weather-cards" id="head-scroll">
                 <h2>Прогноз на месяц</h2>
                 <h3>Первая неделя</h3>
                 <div class="week">
@@ -537,7 +538,7 @@
         </div>
         <div class="copyright">&copy; 2023 WeatherHub. Chernykh Timofei ИКБО-36-22.</div>
     </footer>
-    <script src="script.js"></script>
+    <script src="contentshow.js"></script>
 </body>
 
 </html>
