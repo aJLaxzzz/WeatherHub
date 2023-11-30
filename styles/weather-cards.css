@@ -339,6 +339,7 @@
 .current-weather-date-time{
     margin-top: 10%;
     grid-area: h1;
+    margin-left: -15px;
 }
 
 .current-weather-city {
