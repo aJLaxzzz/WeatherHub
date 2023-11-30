@@ -1,18 +1,15 @@
 const apiKey = '14ffbc8669a614bd9983ed43497d73b5'; 
 
-async function showWeather() {
+function showWeather() {
     
     const selectElement = document.getElementById('cities');
     const selectedCity = selectElement.value;
     printCurrentWeather(selectedCity);
     createWeatherCards(selectedCity);
+    printWeekWeather();
     document.getElementById('weather-container').style.display = 'block';
 
-    const weatherTypes = await getWeeklyWeatherType(selectedCity);
     
-    if (weatherTypes) {
-       alert(weatherTypes[3].weatherType)
-    }
 }
 
 
@@ -41,14 +38,22 @@ async function printCurrentWeather(currentCity) {
             // Получаем день недели, дату и время
             const dayOfWeek = getDayOfWeek(date.getDay());
             const formattedDate = formatDate(date);
-            const formattedTime = formatTime(date);
-            const weatherCondition = weatherData.weather[0].id;
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const currentTimeString = `${hours}:${minutes}`;
+            const weatherCondition = weatherData.weather[0].main;
+
+            
+            const imgElement = document.querySelector('.current-weather-card img');
+            const newImgUrl = getWeatherIcon(weatherCondition);
+            imgElement.src = newImgUrl;
             
             // Используем полученные значения
             dayElement.textContent = dayOfWeek;
             dateElement.textContent = formattedDate;
-            timeElement.textContent = formattedTime;
-            /*weatherConditionElement.textContent = icons[weatherCondition];*/
+            timeElement.textContent = currentTimeString;
+            weatherConditionElement.textContent = getWeatherCondition(weatherCondition);
             temperatureElement.textContent = `${kelvinToCelsius(weatherData.main.temp)}°C`;
             windSpeedElement.textContent = `${weatherData.wind.speed} м/с`; // Замените на соответствующий ключ в объекте weatherData
             pressureElement.textContent = `${kelvinToCelsius(weatherData.main.pressure)} мм рт. ст.`; // Замените на соответствующий ключ в объекте weatherData
@@ -62,7 +67,75 @@ async function printCurrentWeather(currentCity) {
     } catch (error) {
         alert('Произошла ошибка:', error);
     }
+}
 
+const weatherConditions = ['clear', 'clouds', 'rain', 'snow', 'thunderstorm', 'drizzle'];
+
+function getRandomWeatherCondition() {
+    const randomIndex = Math.floor(Math.random() * weatherConditions.length);
+    return weatherConditions[randomIndex];
+}
+
+function getWeatherCondition(weatherCondition) {
+    switch (weatherCondition.toLowerCase()) {
+        case 'clear':
+            return 'Ясно';
+        case 'clouds':
+            return 'Облачно';
+        case 'rain':
+            return 'Дождь';
+        case 'snow':
+            return 'Снег';
+        case 'thunderstorm':
+            return 'Гроза';
+        case 'drizzle':
+            return 'Мелкий дождь';
+        default:
+            return 'Неизвестное состояние погоды';
+    }
+}
+
+function getWeatherIcon(weatherCondition) {
+    switch (weatherCondition.toLowerCase()) {
+        case 'clear':
+            return 'images/weather-icons/clear.png';
+        case 'clouds':
+            return 'images/weather-icons/clouds.png';
+        case 'rain':
+            return 'images/weather-icons/rain.png';
+        case 'snow':
+            return 'images/weather-icons/snow.png';
+        case 'thunderstorm':
+            return 'images/weather-icons/thunderstorm.png';
+        case 'drizzle':
+            return 'images/weather-icons/cloud and moon.png';
+        default:
+            return 'images/weather-icons/wind.png';
+    }
+}
+
+function printWeekWeather() {
+    const daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    const months = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+
+    const weekCards = document.querySelectorAll('.week-weather-card');
+
+    weekCards.forEach((card, index) => {
+        const cardHeader = card.querySelector('.week-weather-card-header');
+        const headDateElement = cardHeader.querySelector('.head-date');
+        const headerHeaderElement = cardHeader.querySelector('.header-header');
+
+        const currentDate = new Date(); // Создаем новый объект Date на каждой итерации
+        currentDate.setDate(currentDate.getDate() + index); // Устанавливаем дату для каждой карточки
+
+        const dayOfWeekIndex = currentDate.getDay();
+        const dayOfWeek = daysOfWeek[dayOfWeekIndex];
+        const dayOfMonth = currentDate.getDate();
+        const month = months[currentDate.getMonth()];
+
+        headDateElement.textContent = dayOfMonth;
+        headerHeaderElement.textContent = ` ${month} ${dayOfWeek}`;
+    });
 }
 
 async function getCurrentWeather(city) {
@@ -116,7 +189,7 @@ function formatTime(date) {
 }
 
 
-function addWeatherCard(date, morningTemperature, morningWeatherType, nightTemperature, iconSrc, weekIndex) {
+function addWeatherCard(date, morningTemperature, morningWeatherType, nightTemperature, nightWeatherType, iconSrc, weekIndex) {
     const weatherCard = document.createElement('div');
     weatherCard.classList.add('weather-card');
 
@@ -155,6 +228,11 @@ function addWeatherCard(date, morningTemperature, morningWeatherType, nightTempe
     nightTemperatureDiv.textContent = nightTemperature;
     weatherInfo.appendChild(nightTemperatureDiv);
 
+    const nightWeatherTypeDiv = document.createElement('div');
+    nightWeatherTypeDiv.classList.add('weather-type-night');
+    nightWeatherTypeDiv.textContent = nightWeatherType;
+    weatherInfo.appendChild(nightWeatherTypeDiv);
+
     weatherCard.appendChild(weatherInfo);
 
     const img = document.createElement('img');
@@ -166,13 +244,12 @@ function addWeatherCard(date, morningTemperature, morningWeatherType, nightTempe
 }
 
 
-async function createWeatherCards(selectedCity) {
+async function createWeatherCards(currentCity) {
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate()); // Удаление одного дня
     const daysInWeek = 7;
     const options2 = { weekday: 'long' };
     let dayCount = 0;
-    const temperatures = await getWeeklyTemperature(selectedCity);
 
     for (let weekIndex = 0; weekIndex < 5; weekIndex++) {
         const weekDiv = document.querySelectorAll('.week')[weekIndex];
@@ -188,17 +265,17 @@ async function createWeatherCards(selectedCity) {
 
             const dayString = futureDate.toLocaleDateString('ru-RU', options2);
             const dateString = `${futureDate.getDate()} ${futureDate.toLocaleDateString('ru-RU', { month: 'short' })}`;
-
-            const day = temperatures[dayCount];
-            const dayTemperatureAsString = Math.round(day.dayTemperature).toString();
-            const nightTemperatureAsString = Math.round(day.nightTemperature).toString();
-            const weatherType = day.date.toString();
+            const dayTemperature = getRandomTemperatureString(-25, 25);
+            const nightTemperature = getRandomTemperatureString(-25, 25);
+            const weatherCondition = getRandomWeatherCondition();
+            const weatherCondition2 = getRandomWeatherCondition();
             addWeatherCard(
                 `${dayString}, ${dateString}`,
-                dayTemperatureAsString, // утро
-                weatherType, // тип погоды утро
-                nightTemperatureAsString, // ночь
-                'images/weather-icons/moon.png',
+                dayTemperature, // утро
+                getWeatherCondition(weatherCondition), // тип погоды утро
+                nightTemperature, // ночь
+                getWeatherCondition(weatherCondition2), // тип погоды ночь
+                getWeatherIcon(weatherCondition),
                 weekIndex
             );
             dayCount++;
@@ -206,73 +283,10 @@ async function createWeatherCards(selectedCity) {
     }
 }
 
-
-async function getWeeklyTemperature(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=metric&lang=ru&cnt=30`;
-
-    try {
-        const response = await fetch(apiUrl);
-
-        if (!response.ok) {
-            alert("ne OK");
-        }
-
-        const data = await response.json();
-        const dailyTemperatures = [];
-
-        // Iterate through each day
-        for (let i = 0; i < data.list.length; i += 8) {
-            const dayData = data.list[i];
-            const dayTemperature = dayData.main.temp;
-
-            // Assuming day time is around 12:00 to 15:00 and night time is around 21:00 to 00:00
-            const nightTemperature = (dayData.main.temp + data.list[i + 2].main.temp + data.list[i + 4].main.temp) / 3;
-
-            dailyTemperatures.push({
-                date: dayData.dt_txt,
-                dayTemperature,
-                nightTemperature,
-            });
-        }
-
-        return dailyTemperatures;
-    } catch (error) {
-        alert('Fetch error:', error);
-        return null;
-    }
+function getRandomTemperatureString(min, max) {
+    const randomTemperature = Math.floor(Math.random() * (max - min + 1)) + min;
+    return randomTemperature.toString();
 }
-
-
-async function getWeeklyWeatherType(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=metric&lang=ru&cnt=30`;
-
-    try {
-        const response = await fetch(apiUrl);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        const dailyWeatherTypes = [];
-
-        for (let i = 0; i < data.list.length; i += 8) {
-            const dayData = data.list[i];
-            const weatherType = dayData.weather[0].description;
-
-            dailyWeatherTypes.push({
-                date: dayData.dt_txt,
-                weatherType,
-            });
-        }
-
-        return dailyWeatherTypes;
-    } catch (error) {
-        console.error('Fetch error:', error);
-        return null;
-    }
-}
-
 
 
 
