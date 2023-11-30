@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Слушаем изменения в выпадающем списке сортировки
-    const sortingSelect = document.getElementById('sorting');
+    // Слушаем изменения в выпадающем списке сортировки в заголовке
+    const sortingSelectHeader = document.getElementById('sorting-header');
+
+    // Слушаем изменения в выпадающем списке сортировки в боковой панели
+    const sortingSelectAside = document.getElementById('sorting-aside');
 
     // Сохраняем исходный порядок товаров при загрузке страницы
     const initialOrder = {};
@@ -11,12 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         productItems.forEach((item, index) => {
             initialOrder[item.id] = index;
         });
-    });
-
-    // Слушаем изменения в выпадающем списке сортировки
-    sortingSelect.addEventListener('change', () => {
-        // Вызываем функцию для сортировки товаров
-        sortProducts(sortingSelect.value, productContainers);
     });
 
     // Функция для сортировки товаров
@@ -53,6 +50,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    // Слушаем изменения в выпадающем списке сортировки в заголовке
+    sortingSelectHeader.addEventListener('change', () => {
+        // Вызываем функцию для сортировки товаров
+        sortProducts(sortingSelectHeader.value, productContainers);
+    });
+
+    // Слушаем изменения в выпадающем списке сортировки в боковой панели
+    sortingSelectAside.addEventListener('change', () => {
+        // Вызываем функцию для сортировки товаров
+        sortProducts(sortingSelectAside.value, productContainers);
+    });
 
     // Вызываем функцию при загрузке страницы для инициализации сортировки
     sortProducts('standard', productContainers);
