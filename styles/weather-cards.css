@@ -1,37 +1,571 @@
-/* styles/cards.css */
+.week-forecast {
+    margin-top: 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-.weather-cards {
+
+.week-weather-card {
+    width: 100%;
+    overflow-y: auto;
+    border: 1px solid var(--accent-color);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column ;
+    text-align: center;
+}
+.week-weather-card-header {
+    grid-area: s1;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    grid-template-areas: 
+    "h1 h0 h2 h3 h4 h5";
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    margin-bottom: -5%;
+}
+
+  
+.week-weather-card h4 {
+    font-size: 14px; 
+    color: rgba(255, 255, 255, 0.483);
+}
+
+.head-date{
+    margin-left: 50%;
+    grid-area: h1;
+    font-size: 60px;
+    color: #fff;
+}
+
+
+.temp-span {
+    font-size: 30px;
+    color: #fff;
+}
+
+.header-header{
+    grid-area: h0;
+    margin-left: -5%;
+
+}
+
+.week-weather-card-header::after{
+    top:-100%;
+    position: relative;
+    content: "";
+    width: 600%;
+    height: 1px;
+    background-color: var(--accent-color);
+    display: block;
+    margin: 10px 0;
+}
+.pressure-header{
+    grid-area: h2;
+
+}
+.humidity-header{
+    grid-area: h3;
+
+}
+.wind-header{
+    grid-area: h4;
+
+}
+.feels-header{
+    grid-area: h5;
+
+}
+
+.week-weather-card-morning {
+    margin-left: 1%;
+    grid-area: s2;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    grid-template-areas: 
+    "a1 a2 a3 a4 a5 a6";
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+}
+
+.header-morning{
+    grid-area: a1;
+}
+.temperature-morning{
+    grid-area: a2;
+}
+.pressure-morning{
+    grid-area: a3;
+}
+.humidity-morning{
+    grid-area: a4;
+}
+.wind-morning{
+    grid-area: a5;
+}
+.feels-morning{
+    grid-area: a6;
+}
+
+.week-weather-card-day {
+    margin-left: 1%;
+    grid-area: s3;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    grid-template-areas: 
+    "b1 b2 b3 b4 b5 b6";
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+}
+
+.header-day{
+    grid-area: b1;
+}
+.temperature-day{
+    grid-area: b2;
+}
+.pressure-day{
+    grid-area: b3;
+}
+.humidity-day{
+    grid-area: b4;
+}
+.wind-day{
+    grid-area: b5;
+}
+.feels-day{
+    grid-area: b6;
+}
+
+
+.week-weather-card-evening {
+    margin-left: 1%;
+    grid-area: s4;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    grid-template-areas: 
+    "b1 b2 b3 b4 b5 b6";
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+}
+
+.header-evening{
+    grid-area: b1;
+}
+.temperature-evening{
+    grid-area: b2;
+}
+.pressure-evening{
+    grid-area: b3;
+}
+.humidity-evening{
+    grid-area: b4;
+}
+.wind-evening{
+    grid-area: b5;
+}
+.feels-evening{
+    grid-area: b6;
+}
+
+.week-weather-card-night {
+    margin-left: 1%;
+    grid-area: s5;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    grid-template-areas: 
+    "b1 b2 b3 b4 b5 b6";
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+}
+
+.header-night{
+    grid-area: b1;
+}
+.temperatur-night{
+    grid-area: b2;
+}
+.pressure-night{
+    grid-area: b3;
+}
+.humidity-night{
+    grid-area: b4;
+}
+.wind-night{
+    grid-area: b5;
+}
+.feels-night{
+    grid-area: b6;
+}
+
+
+
+
+
+
+.week-weather-card img {
+    max-width: 50px;
+    height: auto;
+}
+
+
+.header-header,
+.pressure-header,
+.humidity-header,
+.wind-header,
+.feels-header,
+.header-morning,
+.temperature-morning,
+.pressure-morning,
+.humidity-morning,
+.wind-morning,
+.feels-morning,
+.header-day,
+.temperature-day,
+.pressure-day,
+.humidity-day,
+.wind-day,
+.feels-day,
+.header-evening,
+.temperature-evening,
+.pressure-evening,
+.humidity-evening,
+.wind-evening,
+.feels-evening,
+.header-night,
+.temperatur-night,
+.pressure-night,
+.humidity-night,
+.wind-night,
+.feels-night {
+    width: 100px; /* Make each cell take 100% of the width */
+}
+
+@media only screen and (max-width: 767px) {
+    .header-header,
+    .pressure-header,
+    .humidity-header,
+    .wind-header,
+    .feels-header,
+    .header-morning,
+    .temperature-morning,
+    .pressure-morning,
+    .humidity-morning,
+    .wind-morning,
+    .feels-morning,
+    .header-day,
+    .temperature-day,
+    .pressure-day,
+    .humidity-day,
+    .wind-day,
+    .feels-day,
+    .header-evening,
+    .temperature-evening,
+    .pressure-evening,
+    .humidity-evening,
+    .wind-evening,
+    .feels-evening,
+    .header-night,
+    .temperatur-night,
+    .pressure-night,
+    .humidity-night,
+    .wind-night,
+    .feels-night{
+        margin-left: 150%;
+    }
+
+    .header-header{
+        margin-left: 170%;
+    }
+
+    .pressure-header,
+    .humidity-header,
+    .wind-header,
+    .feels-header{
+        margin-left: 170%;
+    }
+    .head-date{
+        margin-left: 250%;
+    }
+    .week-weather-card-header::after{
+        width: 1100%;
+    }
+}
+
+
+
+
+/* Добавить стили по желанию для красоты */
+
+
+
+/*текущая погода*/
+
+.current-weather-card {
+    margin-top: 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-areas: 
+    "c1 c1"
+    "c3 c4";
+    width: 60%;
+}
+
+.current-weather-header {
+    transition: all 0.7s ease-in-out;
+    margin-bottom: 1px;
+    grid-area: c1;
+    background-color: #313a47;
+    color: #fff;
+    text-align: center;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-areas: 
+    "h1 h5"
+    "h1 h5"
+    "h1 h6"
+    "h1 h6";
+}
+.current-weather-date-time{
+    margin-top: 10%;
+    grid-area: h1;
+}
+
+.current-weather-city {
+    font-weight: 900;
+    font-size: 35px;
+}
+
+.current-weather-date {
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.current-weather-time {
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.current-weather-day{
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.current-weather-info {
+    transition: all 0.7s ease-in-out;
+    background-color: #313a47;
+    display: flex;
+    grid-area: c3;
+    margin: 1px;
+    align-items: center;
     justify-content: space-around;
-    margin-top: 20px;
+    padding: 20px;
 }
 
-.weather-card {
-    width: calc(14.28% - 20px); /* Устанавливаем ширину так, чтобы 7 карточек влезли в строку */
-    margin: 10px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
+.current-weather-temperature {
+    font-size: 60px;
+    font-weight: 800;
+
 }
 
-.weather-card:hover {
+
+
+.current-weather-header img {
+    grid-area: h6;
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: -15px auto 0 auto;
+    
+}
+
+
+.current-weather-header p{
+    grid-area: h5;
+    font-size: 25px;
+    font-weight: 300;
+    text-align: center;
+}
+
+
+.current-weather-details {
+    transition: all 0.7s ease-in-out;
+    grid-area: c4;
+    padding: 10px;
+    margin: 1px;
+    background-color: #313a47;
+}
+
+.current-weather-detail {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.current-weather-detail span {
+    margin-right: 20%;
+    float: right;
+    font-size: 16px;
+    font-weight: 900;
+    margin-left: 40px;
+}
+
+.current-weather-details:hover, .current-weather-header:hover, .current-weather-info:hover, .current-weather-icon:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.633);
+}
+
+
+
+.current-weather-header:hover,
+.current-weather-icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.633);
+}
+
+.current-weather-icon:hover + .current-weather-header {
     transform: scale(1.05);
 }
 
+
+@media screen and (max-width: 768px) {
+    .current-weather-card {
+        width: 100%;
+    }
+    .weather-card {
+        width: 100%;
+        margin: 1% 0;
+    }
+
+    .weather-card-image img {
+        margin-left: 40%;
+        width: 20%;
+    }
+}
+
+/*на месяц*/
+.weather-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.week {
+    display: flex;
+    overflow-y: auto;
+}
+
+.weather-card {
+    display: grid;
+    width: 22%;
+    margin: 2%;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-areas: 
+    "h1 h1"
+    "h2 h3";
+    min-width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.weather-card:hover {
+    transform: scale(1.1); /* Увеличиваем масштаб при наведении */
+    box-shadow: 0 0 40px rgba(255, 253, 253, 0.3);
+}
+
+.weather-card-header {
+    grid-area: h1;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.weather-info {
+    grid-area: h2;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 20px;
+}
+
+.weather-info > * {
+    margin-right: 10px;
+}
+
+.date-morning {
+    font-size: 26px;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+}
+
+.temperature-morningg {
+    font-size: 35px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+
+.date-night {
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 10px;
+    color: rgba(0, 0, 0, 0.383);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.temperature-night {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.383);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.weather-type-morning {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+.weather-type-night {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--header-bg-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .weather-card img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
-
-/* Дополнительная информация, отображаемая при наведении */
-.weather-details {
-    display: none;
-}
-
-.weather-card:hover .weather-details {
+    grid-area: h3;
+    width: 150%;
     display: block;
+    margin-top: 90%;
+    margin-left: -60%;
 }
+
+.weather-card:hover .date-night,
+.weather-card:hover .temperature-night,
+.weather-card:hover .weather-type-night {
+    opacity: 1;
+}
+
+
+

@@ -17,6 +17,7 @@
     color: whitesmoke;
     padding: 16px;
     font-size: 16px;
+    border-radius: 1000px;
     border: none;
     position: relative;
     overflow: hidden;
@@ -114,10 +115,10 @@
     transform: translate(-50%, -50%) scale(0);
     background: whitesmoke;
     width:50%;
-    height: 55%;
+    height: 65%;
     z-index: 2;
     text-align: center;
-    padding: 20px;
+    padding:5px;
     box-sizing: border-box;
 }
 
@@ -160,7 +161,7 @@
     display: flex;
     border: 1px solid #ccc;
     margin-bottom: 10px;
-    padding: 10px;
+    padding-right: 400px;
 }
 
 .item-thumbnail {
@@ -244,7 +245,7 @@
 }
 
 #cart-content {
-    max-height: 45%; /* Настройте максимальную высоту по вашему усмотрению */
+    max-height: 50%; 
     overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
 }
 
