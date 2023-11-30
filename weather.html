@@ -53,17 +53,17 @@
         <form id="cityForm">
             <label for="cities">Выберите город:</label>
             <select id="cities" name="cities">
-                <option value="moscow">Москва</option>
-                <option value="stpetersburg">Санкт-Петербург</option>
-                <option value="novosibirsk">Новосибирск</option>
-                <option value="ekaterinburg">Екатеринбург</option>
-                <option value="kazan">Казань</option>
+                <option value="Москва">Москва</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Новосибирск">Новосибирск</option>
+                <option value="Екатеринбург">Екатеринбург</option>
+                <option value="Казань">Казань</option>
+                <option value="Челябинск">Челябинск</option>
             </select>
             <input type="button" value="Показать погоду" onclick="showWeather()">
         </form>
-        <script src="weatherCards.js"></script>
 
-        <div id="weather-container">
+        <div id="weather-container" style="display:none;">
         
             <!-- Текущая погода -->
             <div class="current-weather-card" id="head-scroll">
@@ -81,13 +81,12 @@
                     <div class="current-weather-temperature">25°C</div>
                 </div>
                 <div class="current-weather-details">
-                    <div class="current-weather-detail">Wind Speed: <span>10 m/s</span></div>
-                    <div class="current-weather-detail">Pressure: <span>10 m/s</span></div>
-                    <div class="current-weather-detail">Humidity: <span>10 m/s</span></div>
-                    <div class="current-weather-detail">Humidity: <span>10 m/s</span></div>
-                    <div class="current-weather-detail">Humidity: <span>10 m/s</span></div>
+                    <div class="current-weather-detail">Скорость ветра: <span>10 m/s</span></div>
+                    <div class="current-weather-detail">Давление: <span>10 m/s</span></div>
+                    <div class="current-weather-detail">Влажность: <span>10 m/s</span></div>
+                    <div class="current-weather-detail">Ощущается как: <span>10 m/s</span></div>
+                    <div class="current-weather-detail">Видимость: <span>10 m/s</span></div>
                 </div>
-                
             </div>
         
             <!-- Прогноз на неделю -->
@@ -150,354 +149,27 @@
                 <h2>Прогноз на месяц</h2>
                 <h3>Первая неделя</h3>
                 <div class="week">
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperatur-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
                     
                 </div>
                 <h3>Вторая неделя</h3>
                 <div class="week">
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
+                
                     
                 </div>
                 <h3>Третья неделя</h3>
                 <div class="week">
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
+                    
                     
                 </div>
                 <h3>Четвертая неделя</h3>
                 <div class="week">
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
-                    <div class="weather-card">
-                        <div class="weather-card-header">Monday, 01.01</div>
-                        <div class="weather-info">
-                            <div class="date-morning">Morning</div>
-                            <div class="temperature-morningg">20°C</div>
-                            <div class="weather-type-morning">Sunny</div>
-                            <div class="date-night">Morning</div>
-                            <div class="temperature-night">20°C</div>
-                            <div class="weather-type-night">Sunny</div>
-                        </div>
-                        <img src="images/weather-icons/moon.png" alt="">   
-                    </div>
+                    
+                    
+                </div>
+
+                <h3>Пятая неделя</h3>
+                <div class="week">
+                    
                     
                 </div>
                 
@@ -506,6 +178,8 @@
         </div>
         
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="weatherCards.js"></script>
 
     <footer>
         <div class="footer-item information">
