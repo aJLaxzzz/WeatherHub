@@ -1,6 +1,6 @@
 const apiKey = '14ffbc8669a614bd9983ed43497d73b5'; 
 
-function showWeather() {
+async function showWeather() {
     
     const selectElement = document.getElementById('cities');
     const selectedCity = selectElement.value;
@@ -8,7 +8,11 @@ function showWeather() {
     createWeatherCards(selectedCity);
     document.getElementById('weather-container').style.display = 'block';
 
+    const weatherTypes = await getWeeklyWeatherType(selectedCity);
     
+    if (weatherTypes) {
+       alert(weatherTypes[3].weatherType)
+    }
 }
 
 
@@ -112,7 +116,7 @@ function formatTime(date) {
 }
 
 
-function addWeatherCard(date, morningTemperature, morningWeatherType, nightTemperature, nightWeatherType, iconSrc, weekIndex) {
+function addWeatherCard(date, morningTemperature, morningWeatherType, nightTemperature, iconSrc, weekIndex) {
     const weatherCard = document.createElement('div');
     weatherCard.classList.add('weather-card');
 
@@ -151,11 +155,6 @@ function addWeatherCard(date, morningTemperature, morningWeatherType, nightTempe
     nightTemperatureDiv.textContent = nightTemperature;
     weatherInfo.appendChild(nightTemperatureDiv);
 
-    const nightWeatherTypeDiv = document.createElement('div');
-    nightWeatherTypeDiv.classList.add('weather-type-night');
-    nightWeatherTypeDiv.textContent = nightWeatherType;
-    weatherInfo.appendChild(nightWeatherTypeDiv);
-
     weatherCard.appendChild(weatherInfo);
 
     const img = document.createElement('img');
@@ -167,13 +166,13 @@ function addWeatherCard(date, morningTemperature, morningWeatherType, nightTempe
 }
 
 
-async function createWeatherCards(currentCity) {
+async function createWeatherCards(selectedCity) {
     const currentDate = new Date();
     currentDate.setDate(currentDate.getDate()); // Удаление одного дня
     const daysInWeek = 7;
     const options2 = { weekday: 'long' };
     let dayCount = 0;
-    const dailyForecast = await getWeeklyForecast(currentCity);
+    const temperatures = await getWeeklyTemperature(selectedCity);
 
     for (let weekIndex = 0; weekIndex < 5; weekIndex++) {
         const weekDiv = document.querySelectorAll('.week')[weekIndex];
@@ -190,12 +189,15 @@ async function createWeatherCards(currentCity) {
             const dayString = futureDate.toLocaleDateString('ru-RU', options2);
             const dateString = `${futureDate.getDate()} ${futureDate.toLocaleDateString('ru-RU', { month: 'short' })}`;
 
+            const day = temperatures[dayCount];
+            const dayTemperatureAsString = Math.round(day.dayTemperature).toString();
+            const nightTemperatureAsString = Math.round(day.nightTemperature).toString();
+            const weatherType = day.date.toString();
             addWeatherCard(
                 `${dayString}, ${dateString}`,
-                '20°C', // утро
-                'Sunny', // тип погоды утро
-                '20°C', // ночь
-                'Sunny', // тип погоды ночь
+                dayTemperatureAsString, // утро
+                weatherType, // тип погоды утро
+                nightTemperatureAsString, // ночь
                 'images/weather-icons/moon.png',
                 weekIndex
             );
@@ -204,46 +206,73 @@ async function createWeatherCards(currentCity) {
     }
 }
 
-async function getWeeklyForecast(city) {
+
+async function getWeeklyTemperature(city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=metric&lang=ru&cnt=30`;
-  
+
     try {
         const response = await fetch(apiUrl);
-  
+
+        if (!response.ok) {
+            alert("ne OK");
+        }
+
+        const data = await response.json();
+        const dailyTemperatures = [];
+
+        // Iterate through each day
+        for (let i = 0; i < data.list.length; i += 8) {
+            const dayData = data.list[i];
+            const dayTemperature = dayData.main.temp;
+
+            // Assuming day time is around 12:00 to 15:00 and night time is around 21:00 to 00:00
+            const nightTemperature = (dayData.main.temp + data.list[i + 2].main.temp + data.list[i + 4].main.temp) / 3;
+
+            dailyTemperatures.push({
+                date: dayData.dt_txt,
+                dayTemperature,
+                nightTemperature,
+            });
+        }
+
+        return dailyTemperatures;
+    } catch (error) {
+        alert('Fetch error:', error);
+        return null;
+    }
+}
+
+
+async function getWeeklyWeatherType(city) {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${apiKey}&units=metric&lang=ru&cnt=30`;
+
+    try {
+        const response = await fetch(apiUrl);
+
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-  
+
         const data = await response.json();
+        const dailyWeatherTypes = [];
 
-        // Проход по каждому элементу массива list
-        const dailyForecast = data.list.reduce((dailyForecast, forecast) => {
-            const date = forecast.dt_txt.split(' ')[0]; // Извлечение даты без времени
-            const time = forecast.dt_txt.split(' ')[1]; // Извлечение времени
+        for (let i = 0; i < data.list.length; i += 8) {
+            const dayData = data.list[i];
+            const weatherType = dayData.weather[0].description;
 
-            // Определение, днем или ночью
-            const isDay = time >= '06:00:00' && time < '18:00:00';
-            
-            // Добавление в массив dailyForecast
-            if (!dailyForecast[date]) {
-                dailyForecast[date] = { day: [], night: [] };
-            }
+            dailyWeatherTypes.push({
+                date: dayData.dt_txt,
+                weatherType,
+            });
+        }
 
-            if (isDay) {
-                dailyForecast[date].day.push(forecast);
-            } else {
-                dailyForecast[date].night.push(forecast);
-            }
-
-            return dailyForecast;
-        }, {});
-
-        return dailyForecast;
+        return dailyWeatherTypes;
     } catch (error) {
         console.error('Fetch error:', error);
         return null;
     }
 }
+
 
 
 
