@@ -131,9 +131,10 @@ function printWeekWeather() {
         const dayOfWeekIndex = currentDate.getDay();
         const dayOfWeek = daysOfWeek[dayOfWeekIndex];
         const dayOfMonth = currentDate.getDate();
+        const formattedDay = dayOfMonth.toString().padStart(2, '0');
         const month = months[currentDate.getMonth()];
 
-        headDateElement.textContent = dayOfMonth;
+        headDateElement.textContent = formattedDay;
         headerHeaderElement.textContent = ` ${month} ${dayOfWeek}`;
     });
 }
