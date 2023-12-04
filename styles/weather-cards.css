@@ -443,7 +443,7 @@
 
 @media screen and (max-width: 768px) {
     .current-weather-card {
-        width: 100%;
+        width: 105%;
     }
     .weather-card {
         width: 100%;
