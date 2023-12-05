@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         containers.forEach(productContainer => {
             const productItems = Array.from(productContainer.children);
 
-            const sortedItems = productItems.slice(); // Создаем копию массива товаров
+            const sortedItems = productItems.slice();  
 
             if (sortBy === 'ascending') {
                 sortedItems.sort((a, b) => {
