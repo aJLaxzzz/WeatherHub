@@ -31,11 +31,10 @@ async function printCurrentWeather(currentCity) {
         const weatherData = await getCurrentWeather(currentCity);
     
         if (weatherData) {
-
-            const timestamp = weatherData.dt * 1000; // Умножаем на 1000, потому что timestamp в секундах, а не в миллисекундах
+            const timestamp = weatherData.dt * 1000;  
             const date = new Date(timestamp);
 
-            // Получаем день недели, дату и время
+           
             const dayOfWeek = getDayOfWeek(date.getDay());
             const formattedDate = formatDate(date);
             const now = new Date();
@@ -49,17 +48,17 @@ async function printCurrentWeather(currentCity) {
             const newImgUrl = getWeatherIcon(weatherCondition);
             imgElement.src = newImgUrl;
             
-            // Используем полученные значения
+            
             dayElement.textContent = dayOfWeek;
             dateElement.textContent = formattedDate;
             timeElement.textContent = currentTimeString;
             weatherConditionElement.textContent = getWeatherCondition(weatherCondition);
             temperatureElement.textContent = `${kelvinToCelsius(weatherData.main.temp)}°C`;
-            windSpeedElement.textContent = `${weatherData.wind.speed} м/с`; // Замените на соответствующий ключ в объекте weatherData
-            pressureElement.textContent = `${kelvinToCelsius(weatherData.main.pressure)} мм рт. ст.`; // Замените на соответствующий ключ в объекте weatherData
-            humidityElement.textContent = `${weatherData.main.humidity}%`; // Замените на соответствующий ключ в объекте weatherData
-            feelsLikeElement.textContent = `${kelvinToCelsius(weatherData.main.feels_like)}°C`; // Замените на соответствующий ключ в объекте weatherData
-            visibilityElement.textContent = `${weatherData.visibility} м`; // Замените на соответствующий ключ в объекте weatherData
+            windSpeedElement.textContent = `${weatherData.wind.speed} м/с`; 
+            pressureElement.textContent = `${kelvinToCelsius(weatherData.main.pressure)} мм рт. ст.`; 
+            humidityElement.textContent = `${weatherData.main.humidity}%`;
+            feelsLikeElement.textContent = `${kelvinToCelsius(weatherData.main.feels_like)}°C`; 
+            visibilityElement.textContent = `${weatherData.visibility} м`; 
             
         } else {
             alert('Не удалось получить данные о погоде.');
@@ -125,8 +124,8 @@ function printWeekWeather() {
         const headDateElement = cardHeader.querySelector('.head-date');
         const headerHeaderElement = cardHeader.querySelector('.header-header');
 
-        const currentDate = new Date(); // Создаем новый объект Date на каждой итерации
-        currentDate.setDate(currentDate.getDate() + index); // Устанавливаем дату для каждой карточки
+        const currentDate = new Date(); 
+        currentDate.setDate(currentDate.getDate() + index); 
 
         const dayOfWeekIndex = currentDate.getDay();
         const dayOfWeek = daysOfWeek[dayOfWeekIndex];
@@ -247,7 +246,7 @@ function addWeatherCard(date, morningTemperature, morningWeatherType, nightTempe
 
 async function createWeatherCards(currentCity) {
     const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate()); // Удаление одного дня
+    currentDate.setDate(currentDate.getDate()); 
     const daysInWeek = 7;
     const options2 = { weekday: 'long' };
     let dayCount = 0;
@@ -272,10 +271,10 @@ async function createWeatherCards(currentCity) {
             const weatherCondition2 = getRandomWeatherCondition();
             addWeatherCard(
                 `${dayString}, ${dateString}`,
-                dayTemperature, // утро
-                getWeatherCondition(weatherCondition), // тип погоды утро
-                nightTemperature, // ночь
-                getWeatherCondition(weatherCondition2), // тип погоды ночь
+                dayTemperature, 
+                getWeatherCondition(weatherCondition), 
+                nightTemperature, 
+                getWeatherCondition(weatherCondition2), 
                 getWeatherIcon(weatherCondition),
                 weekIndex
             );
