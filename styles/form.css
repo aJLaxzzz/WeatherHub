@@ -26,6 +26,19 @@
     animation-delay: calc(-5s / 3);
 }
 
+@keyframes translate {
+
+    0%,
+    100% {
+        transform: translateY(-40px);
+    }
+
+    50% {
+        transform: translateY(40px);
+    }
+
+}
+
 .boxx .square:nth-child(1) {
     top: -50px;
     right: -60px;

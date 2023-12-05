@@ -86,12 +86,12 @@ function getWeatherCondition(weatherCondition) {
             return 'Дождь';
         case 'snow':
             return 'Снег';
-        case 'thunderstorm':
-            return 'Гроза';
         case 'drizzle':
             return 'Мелкий дождь';
+        case 'thunderstorm':
+            return 'Гроза';
         default:
-            return 'Неизвестное состояние погоды';
+            return 'Ветер';
     }
 }
 
@@ -105,10 +105,10 @@ function getWeatherIcon(weatherCondition) {
             return 'images/weather-icons/rain.png';
         case 'snow':
             return 'images/weather-icons/snow.png';
-        case 'thunderstorm':
-            return 'images/weather-icons/thunderstorm.png';
         case 'drizzle':
             return 'images/weather-icons/cloud and moon.png';
+        case 'thunderstorm':
+            return 'images/weather-icons/thunderstorm.png';
         default:
             return 'images/weather-icons/wind.png';
     }
