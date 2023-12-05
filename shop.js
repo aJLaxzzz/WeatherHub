@@ -10,18 +10,15 @@ function openPopup() {
 function closePopup() {
     const popup = document.getElementById("popup");
 
-    // Показываем информацию о товарах и кнопку "Заказать"
     const cartInfo = document.getElementById('cart-info');
     const orderButton = document.getElementById('order-button');
 
     cartInfo.style.display = 'block';
     orderButton.style.display = 'block';
 
-    // Скрываем сообщение о заказе
     const orderMessage = document.getElementById('order-message');
     orderMessage.style.display = 'none';
 
-    // Закрываем всплывающее окно
     popup.classList.remove("active");
 }
 
@@ -30,14 +27,12 @@ function placeOrder() {
     cartItems = [];
     displayCart();
 
-    // Скрываем информацию о товарах и кнопку "Заказать"
     const cartInfo = document.getElementById('cart-info');
     const orderButton = document.getElementById('order-button');
 
     cartInfo.style.display = 'none';
     orderButton.style.display = 'none';
 
-    // Показываем сообщение о заказе
     const orderMessage = document.getElementById('order-message');
     orderMessage.style.display = 'block';
 }
@@ -78,7 +73,6 @@ function displayCart() {
         `;
         itemDiv.appendChild(quantityElement);
 
-        // Добавление обработчиков событий к кнопкам
         const decreaseButton = quantityElement.querySelector('.quantity-btn:first-child');
         const increaseButton = quantityElement.querySelector('.quantity-btn:last-child');
 
@@ -119,7 +113,7 @@ function addItem(itemName, itemPrice, itemImage) {
         cartItems.push(item);
     }
 
-    displayCart(); // Обновление корзины после добавления товара
+    displayCart(); 
 }
 
 

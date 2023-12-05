@@ -27,7 +27,6 @@ p {
     margin: 20px auto;
 }
 
-/* Добавленные стили для формы */
 #cityForm {
     text-align: center;
     margin-top: 20px;
@@ -108,7 +107,7 @@ input[type="button"]:hover {
 }
 
 
-/* Стили для списка советов */
+
 
 .tips-list {
     list-style-type: none;
@@ -122,8 +121,8 @@ input[type="button"]:hover {
 }
 
 .tips-list li:before {
-    content: "•"; /* Замените символ на любой другой, если нужно */
-    color: var(--accent-color); /* Цвет символа */
+    content: "•"; 
+    color: var(--accent-color);
     font-size: 1.2em;
     position: absolute;
     left: 0;
@@ -191,13 +190,12 @@ input[type="button"]:hover {
     margin-right: auto;
 }
 
-/* Mobile styles */
+
 @media only screen and (max-width: 767px) {
     main {
-        margin-top: 100px; /* Adjusted top margin for smaller screens */
+        margin-top: 100px; 
     }
 
-    /* Adjust font size for better readability on smaller screens */
     h2, main h1 {
         font-size: 1.5rem;
     }
@@ -206,10 +204,10 @@ input[type="button"]:hover {
         font-size: 16px;
     }
 
-    /* Adjust other styles as needed for mobile devices */
+  
 
     .gallery-img {
-        max-width: 100%; /* Ширина 100% для полного экрана на мобильных устройствах */
+        max-width: 100%; 
     }
 
 }

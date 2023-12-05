@@ -42,8 +42,7 @@ nav a:hover {
     color: var(--accent-color);
 }
 
-/* Добавлено свойство vertical-align */
-/* Добавлены стили для hover-эффекта и нового изображения home-cover.png */
+
 nav a:hover::before {
     content: url('images/menu icons/home-cover.png');
     display: block;
@@ -193,8 +192,6 @@ nav a img {
     .burger-icon::after {
         top: 10%;
     }
-
-    /* Анимация для палочек */
     
 
     .menu-toggle:checked + .burger-icon::before {

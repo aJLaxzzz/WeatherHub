@@ -1,4 +1,4 @@
-/* Стили для карточек товаров */
+
 
 .product-container {
     display: flex;
@@ -7,7 +7,7 @@
 }
 
 .product-item {
-    flex: 0 0 calc(33.3333% - 20px); /* Ширина карточки, с учетом отступов */
+    flex: 0 0 calc(33.3333% - 20px); 
     background-color: #333;
     border: 1px solid #555;
     border-radius: 8px;
@@ -52,7 +52,7 @@
     color: var(--accent-color);
 }
 
-/* Добавленные стили для кнопки в корзину */
+
 .cart-button {
     background-color: var(--accent-color);
     color: var(--text-color);
@@ -90,7 +90,7 @@
 }
 
 
-/* Media Query for mobile devices */
+
 @media screen and (max-width: 768px) {
     .product-container {
         display: flex;

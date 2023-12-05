@@ -18,21 +18,21 @@ body {
     color: var(--text-color);
 }
 
-/* Дополнительные стили для header и footer */
+
 header nav a,
 .footer-item a,
 .footer-item a:hover {
-    color: var(--text-color); /* Используем общий цвет текста для ссылок в header и footer */
+    color: var(--text-color); 
 }
 
 a {
-    color: #3498db; /* Изначальный цвет ссылок */
+    color: #3498db;
     text-decoration: none;
-    transition: color 0.3s ease-in-out; /* Анимация изменения цвета */
+    transition: color 0.3s ease-in-out; 
 }
 
 a:hover {
-    color: #e74c3c; /* Цвет ссылок при наведении */
+    color: #e74c3c; 
 }
 
 @media only screen and (max-width: 767px) {

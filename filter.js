@@ -19,8 +19,6 @@ document.getElementById('filter-button').addEventListener('click', function () {
             product.style.display = 'none';
         }
     });
-
-    // Сортировка после фильтрации
     let productContainers = document.querySelectorAll('.product-container');
     sortProducts(sortBy, productContainers);
 });
@@ -46,8 +44,6 @@ document.getElementById('filter-button-aside').addEventListener('click', functio
             product.style.display = 'none';
         }
     });
-
-    // Сортировка после фильтрации
     let productContainers = document.querySelectorAll('.product-container');
     sortProducts(sortBy, productContainers);
 });

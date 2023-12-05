@@ -205,7 +205,7 @@ function addWeatherCard(date, morningTemperature, morningWeatherType, nightTempe
     // Утро
     const morningDiv = document.createElement('div');
     morningDiv.classList.add('date-morning');
-    morningDiv.textContent = 'Morning';
+    morningDiv.textContent = 'Утром';
     weatherInfo.appendChild(morningDiv);
 
     const morningTemperatureDiv = document.createElement('div');
@@ -221,7 +221,7 @@ function addWeatherCard(date, morningTemperature, morningWeatherType, nightTempe
     // Ночь
     const nightDiv = document.createElement('div');
     nightDiv.classList.add('date-night');
-    nightDiv.textContent = 'Night';
+    nightDiv.textContent = 'Ночью';
     weatherInfo.appendChild(nightDiv);
 
     const nightTemperatureDiv = document.createElement('div');
@@ -286,7 +286,7 @@ async function createWeatherCards(currentCity) {
 
 function getRandomTemperatureString(min, max) {
     const randomTemperature = Math.floor(Math.random() * (max - min + 1)) + min;
-    return randomTemperature.toString();
+    return randomTemperature.toString()+"°C";
 }
 
 

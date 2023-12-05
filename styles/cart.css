@@ -123,10 +123,10 @@
 }
 
 #order-message {
-    font-size: 24px; /* Измените размер шрифта по вашему усмотрению */
-    font-weight: bold; /* Жирный текст, если нужно */
-    text-align: center; /* Центрируем текст */
-    margin-top: 20px; /* Немного отступаем сверху */
+    font-size: 24px; 
+    font-weight: bold; 
+    text-align: center;
+    margin-top: 20px; 
 }
 #cart-summary {
     display: flex;
@@ -139,7 +139,7 @@
 }
 
 #order-button {
-    margin-top: 10px; /* Можете настроить отступ сверху по своему усмотрению */
+    margin-top: 10px; 
 }
 
 
@@ -209,7 +209,7 @@
 }
 
 #order-button:active {
-    transform: scale(0.95); /* Масштабирование при активации (нажатии) */
+    transform: scale(0.95);
 }
 
 
@@ -246,19 +246,19 @@
 
 #cart-content {
     max-height: 50%; 
-    overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
+    overflow-y: auto; 
 }
 
 @media screen and (max-width: 768px) {
-    /* Стили для мобильных устройств */
+    
     .popup .content {
-        width: 90%; /* Уменьшаем ширину для мобильных устройств */
+        width: 90%;
     }
 
-    /* Дополнительные стили для мобильных устройств, если необходимо */
+   
     #order-button {
-        font-size: 14px; /* Пример уменьшения размера текста для мобильных устройств */
-        margin-top: 5px; /* Пример уменьшения верхнего отступа для мобильных устройств */
+        font-size: 14px; 
+        margin-top: 5px; 
     }
 }
 

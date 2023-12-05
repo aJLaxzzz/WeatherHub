@@ -245,7 +245,7 @@
 .humidity-night,
 .wind-night,
 .feels-night {
-    width: 100px; /* Make each cell take 100% of the width */
+    width: 100px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -299,14 +299,6 @@
     }
 }
 
-
-
-
-/* Добавить стили по желанию для красоты */
-
-
-
-/*текущая погода*/
 
 .current-weather-card {
     margin-top: 5%;
@@ -485,7 +477,7 @@
 }
 
 .weather-card:hover {
-    transform: scale(1.1); /* Увеличиваем масштаб при наведении */
+    transform: scale(1.1);
     box-shadow: 0 0 40px rgba(255, 253, 253, 0.3);
 }
 

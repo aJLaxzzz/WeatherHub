@@ -25,9 +25,6 @@ footer {
     transition: color 0.3s ease-in-out;
 }
 
-/* Добавлены стили для градиентного цвета при наведении на кнопки социальных сетей */
-
-/* Добавлены стили для навигации в footer */
 .footer-item.navigation a {
     color: var(--text-color);
     text-decoration: none;
@@ -129,7 +126,7 @@ footer {
     filter: invert(100%);
 }
 
-/* Новые стили для копирайта */
+
 .copyright {
     color: var(--text-color);
     font-size: 0.8em;
@@ -144,7 +141,7 @@ footer {
 }
 
 .footer-item.navigation a:hover {
-    color: var(--accent-color); /* Цвет при наведении на навигацию в footer */
+    color: var(--accent-color); 
 }
 
 
@@ -174,7 +171,7 @@ footer {
 
 @media only screen and (max-width: 600px) {
     footer {
-        grid-template-columns: 1fr; /* Одна колонка для мобильных устройств */
+        grid-template-columns: 1fr; 
         grid-template-areas: 
         "c1"
         "c2"
@@ -184,7 +181,7 @@ footer {
     }
 
     .footer-item {
-        margin: 10px 0; /* Уменьшаем отступы для элементов footer на мобильных устройствах */
+        margin: 10px 0; 
     }
 }
 
