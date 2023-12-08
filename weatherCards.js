@@ -61,10 +61,10 @@ async function printCurrentWeather(currentCity) {
             visibilityElement.textContent = `${weatherData.visibility} м`; 
             
         } else {
-            alert('Не удалось получить данные о погоде.');
+            //alert('Не удалось получить данные о погоде.');
         }
     } catch (error) {
-        alert('Произошла ошибка:', error);
+        //alert('Произошла ошибка:', error);
     }
 }
 
@@ -151,7 +151,7 @@ async function getCurrentWeather(city) {
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error('Fetch error:', error);
+      //alert('Fetch error:', error);
       return null;
     }
 }
